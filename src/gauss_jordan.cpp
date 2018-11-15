@@ -95,17 +95,6 @@ L(double) gauss_jordan(L(L(double)) coefficients,
                                               1,
                                               coefficients[j]);
                 }
-
-                std::cout << std::endl;
-                for(int r = 0; r < tam; r++)
-                {
-                        for(int s = 0; s < tam; s++)
-                        {
-                                std::cout << coefficients[r][s]
-                                          << "  ";
-                        }
-                        std::cout << std::endl;
-                }
         }
 
         // For all lines, starting by the last

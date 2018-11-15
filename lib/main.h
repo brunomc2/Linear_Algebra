@@ -6,5 +6,6 @@
 #include "qr.h"
 #include "least_squares.h"
 #include <iostream>
+#include <fstream>
 
 #endif // MAIN_H
