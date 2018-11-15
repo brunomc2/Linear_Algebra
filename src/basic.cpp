@@ -18,7 +18,7 @@
 /* SHORT SUMMARY:
    Returns the absolute value of a double x.
  */
-double abs(double x)
+double abv(double x)
 {
         if(x >= 0)
         {
@@ -35,7 +35,7 @@ double abs(double x)
  */
 bool aeq(double x, double y)
 {
-        return (abs(x - y) < control_constants::epsilon);
+        return (abv(x - y) < control_constants::epsilon);
 }
 
 // Linear combination function

@@ -14,7 +14,7 @@ namespace control_constants
 /* SHORT SUMMARY:
    Returns the absolute value of a double x.
  */
-double abs(double x);
+double abv(double x);
 // Approximately equal function
 /* SHORT SUMMARY:
    Its purpose is to compare, within a tolerance margin of
