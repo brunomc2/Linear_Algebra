@@ -190,23 +190,6 @@ int main()
                         //         test_weight[0] = 1.0;
                         // }
 
-                        /* perfect_score_factor
-                           Renomalize the weights such that a
-                           student with perfect score gets 10 as
-                           a final grade. Notice that this
-                           might force some students to have
-                           above 10 grades, if some of
-                           the weights are negative
-                         */
-                        double perfect_score_factor;
-                        perfect_score_factor = 10.0 /
-                        (10 * test_weight[0] +
-                         10 * (1 - test_weight[0]));
-                        /* This factor will then multiply all
-                           grades, such as that people with a
-                           perfect score are guaranteed to
-                           have a 10 final score.
-                         */
 
                         /* Print the test average weight as a
                            function of the ignored grade.
@@ -239,7 +222,6 @@ int main()
                         //         grade_averages_copy[i][1];
                         // }
                         // total_average /= n_students;
-                        // total_average *= perfect_score_factor;
                         // cout << ignored_grade
                         //      << " ";
                         // cout << total_average;
@@ -260,9 +242,6 @@ int main()
                                 + (1 - test_weight[0]) *
                                 grade_averages_copy[i][1];
 
-                                final_grade *=
-                                perfect_score_factor;
-
                                 if(final_grade < 4.0)
                                 {
                                         fails++;
@@ -276,16 +255,15 @@ int main()
                                         approved++;
                                 }
                         }
-                        cout << ignored_grade
-                             << " "
+                        // cout << ignored_grade
+                             // << " "
                         // Number of fails
-                             << fails
+                             // << fails
                         // Number of final exams
                              // << final_exams
                         // Number of approved
                              // << approved
-                             << endl;
-
+                             // << endl;
                 }
         }
         cout << endl;
