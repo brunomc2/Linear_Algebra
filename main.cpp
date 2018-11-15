@@ -250,11 +250,11 @@ int main()
                         cout << ignored_grade - 0.1
                              << " "
                         // Number of fails
-                             << fails
+                             // << fails
                         // Number of final exams
                              // << final_exams
                         // Number of approved
-                             // << approved
+                             << approved
                              << endl;
                 }
         }
