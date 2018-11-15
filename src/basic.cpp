@@ -60,6 +60,34 @@ L(double) lco(double a, L(double) v, double b, L(double) w)
         return return_vector;
 }
 
+// Matrix-vector multiplication function
+/* SHORT SUMMARY:
+   This function multiplies a matrix A by a vector v from the
+   right, that is, it returns Av. Notive that it DOES NOT CHECK
+   THE SIZE of the matrix and vector, considering only the
+   size of the matrix as the internal parameter.
+ */
+L(double) mvm(L(L(double)) A, L(double) v)
+{
+        /* Notation
+           m: Number of lines in the matrix
+           n: Number of columns in the matrix, and,
+              consequentially, the dimension of the vector.
+         */
+        int m = A.length();
+        int n = A[0].length();
+        L(double) return_vector;
+        for(int i = 0; i < m; i++)
+        {
+                return_vector[i] = 0.0;
+                for(int j = 0; j < n; j++)
+                {
+                        return_vector[i] += A[i][j] * v[j];
+                }
+        }
+        return return_vector;
+}
+
 // Scalar product funtion
 /* SHORT SUMMARY:
    Multiplies each element of a vector by a scalar factor.

@@ -4,6 +4,7 @@
 #include "basic.h"
 #include "gauss_jordan.h"
 #include "qr.h"
+#include "least_squares.h"
 #include <iostream>
 
 #endif // MAIN_H

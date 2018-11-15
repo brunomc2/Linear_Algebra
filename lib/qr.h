@@ -1,3 +1,6 @@
+#ifndef QR_H
+#define QR_H
+
 #include "basic.h"
 #include <math.h>
 
@@ -9,3 +12,5 @@
    The function will receive a matrix A
  */
 L(L(L(double))) qr(L(L(double)) A);
+
+#endif //QR_H

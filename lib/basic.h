@@ -34,6 +34,14 @@ bool aeq(double x, double y);
    be assigned a random (memory residual) value.
  */
 L(double) lco(double a, L(double) v, double b, L(double) w);
+// Matrix-vector multiplication function
+/* SHORT SUMMARY:
+   This function multiplies a matrix A by a vector v from the
+   right, that is, it returns Av. Notive that it DOES NOT CHECK
+   THE SIZE of the matrix and vector, considering only the
+   size of the vector as the internal parameter.
+ */
+L(double) mvm(L(L(double)) A, L(double) v);
 // Scalar product funtion
 /* SHORT SUMMARY:
    Multiplies each element of a vector by a scalar factor.

@@ -5,44 +5,29 @@ using namespace std;
 int main()
 {
         cout << "Enter matrix size" << endl;
-        int size;
-        cin >> size;
-        cout << "Enter the matrix" << endl;
+        int m;
+        int n;
+        cin >> m;
+        cin >> n;
+        cout << "Enter the system" << endl;
         L(L(double)) A;
-        for(int i = 0; i < size; i++)
+        L(double) b;
+        for(int i = 0; i < m; i++)
         {
-                for(int j = 0; j < size; j++)
+                for(int j = 0; j < n; j++)
                 {
                         cin >> A[i][j];
                 }
+                cin >> b[i];
         }
 
-        L(L(L(double))) qr_decomposition = qr(A);
+        L(double) aprox;
+        aprox = least_squares(A,b);
 
-        cout << endl
-             << "QR decomposition"
-             << endl;
-        cout << "Q: " << endl;
-        for(int i = 0; i < A.length(); i++)
-        {
-                for(int j = 0; j < A.length(); j++)
-                {
-                        cout << qr_decomposition[0][i][j];
-                        cout << " ";
-                }
-                cout << endl;
-        }
+        cout << "Solution: " << endl;
+        cout << aprox;
         cout << endl;
-        cout << "R: " << endl;
-        for(int i = 0; i < A.length(); i++)
-        {
-                for(int j = 0; j < A[0].length(); j++)
-                {
-                        cout << qr_decomposition[1][i][j];
-                        cout << " ";
-                }
-                cout << endl;
-        }
+
 
         return 0;
 }
