@@ -177,6 +177,18 @@ int main()
                         L(double) test_weight =
                                 least_squares(grade_difference,
                                               results);
+                        /* Applies a "domain barrier", which
+                           rounds negative weights to 0 and
+                           weights above 1 to 1.
+                         */
+                        // if(test_weight[0] < 0.0)
+                        // {
+                        //         test_weight[0] = 0.0;
+                        // }
+                        // else if(test_weight[0] > 1.0)
+                        // {
+                        //         test_weight[0] = 1.0;
+                        // }
 
                         /* perfect_score_factor
                            Renomalize the weights such that a
@@ -216,22 +228,64 @@ int main()
                            grade as a function of the ignored
                            grade.
                          */
-                        double total_average = 0.0;
+                        // double total_average = 0.0;
+                        // for(int i = 0; i < n_students;
+                        //     i++)
+                        // {
+                        //         total_average +=
+                        //         test_weight[0] *
+                        //         grade_averages_copy[i][0]
+                        //         + (1 - test_weight[0]) *
+                        //         grade_averages_copy[i][1];
+                        // }
+                        // total_average /= n_students;
+                        // total_average *= perfect_score_factor;
+                        // cout << ignored_grade
+                        //      << " ";
+                        // cout << total_average;
+                        // cout << endl;
+
+                        /* Prints the amount of students in final
+                           exam or fails
+                         */
+                        int final_exams = 0;
+                        int fails = 0;
+                        int approved = 0;
                         for(int i = 0; i < n_students;
                             i++)
                         {
-                                total_average +=
+                                double final_grade =
                                 test_weight[0] *
                                 grade_averages_copy[i][0]
                                 + (1 - test_weight[0]) *
                                 grade_averages_copy[i][1];
+
+                                final_grade *=
+                                perfect_score_factor;
+
+                                if(final_grade < 4.0)
+                                {
+                                        fails++;
+                                }
+                                if(final_grade <  7.0)
+                                {
+                                        final_exams++;
+                                }
+                                else
+                                {
+                                        approved++;
+                                }
                         }
-                        total_average /= n_students;
-                        total_average *= perfect_score_factor;
                         cout << ignored_grade
-                             << " ";
-                        cout << total_average;
-                        cout << endl;
+                             << " "
+                        // Number of fails
+                             << fails
+                        // Number of final exams
+                             // << final_exams
+                        // Number of approved
+                             // << approved
+                             << endl;
+
                 }
         }
         cout << endl;
