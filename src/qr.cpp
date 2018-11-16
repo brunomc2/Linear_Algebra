@@ -60,68 +60,84 @@ L(L(L(double))) qr(L(L(double)) A)
                 // For all positions below the main diagonal
                 for(int i = j + 1; i < m; i++)
                 {
-                        /* x
-                           The entry of the matrix that is not
-                           desired to be eliminated.
+                        /* Only do it if the position below is
+                           not already (almost) a zero.
                          */
-                        double x = A[j][j];
+                        if(!aeq(A[i][j], 0))
+                        {
+                                /* x
+                                   The entry of the matrix that is
+                                   not
+                                   desired to be eliminated.
+                                 */
+                                double x = A[j][j];
 
-                        /* y
-                           The entry of the matrix that is
-                           desired to be nulled.
-                         */
-                        double y = A[i][j];
+                                /* y
+                                   The entry of the matrix that
+                                   is
+                                   desired to be nulled.
+                                 */
+                                double y = A[i][j];
 
-                        /* r
-                           The square root of the sum of the
-                           squares of x and y
-                         */
-                        double r = sqrt(x*x + y*y);
+                                /* r
+                                   The square root of the sum of
+                                   the
+                                   squares of x and y
+                                 */
+                                double r = sqrt(x*x + y*y);
 
-                        /* c
-                           Cossine of the angle. Used in the
-                           rotation matrix.
-                         */
-                        double c = x / r;
+                                /* c
+                                   Cossine of the angle. Used in
+                                   the
+                                   rotation matrix.
+                                 */
+                                double c = x / r;
 
-                        /* s
-                           The sine of the angle.
-                         */
-                        double s = y / r;
+                                /* s
+                                   The sine of the angle.
+                                 */
+                                double s = y / r;
 
-                        /* These parameters are all you need
-                           to define the rotation matrix.
-                         */
-                        /* keep_line
-                           Line that is meant to be kept, that is,
-                           the line with the pivot.
-                         */
-                        L(double) keep_line = A[j];
+                                /* These parameters are all you
+                                   need to define the rotation
+                                   matrix.
+                                 */
+                                /* keep_line
+                                   Line that is meant to be kept,
+                                   that is,
+                                   the line with the pivot.
+                                 */
+                                L(double) keep_line = A[j];
 
-                        /* move_line
-                           Line that is meant to be changed, that
-                           is, the line with the element meant
-                           to be nulled.
-                         */
-                        L(double) move_line = A[i];
+                                /* move_line
+                                   Line that is meant to be
+                                   changed, that is, the line
+                                   with the element meant
+                                   to be nulled.
+                                 */
+                                L(double) move_line = A[i];
 
-                        /* Applies the action codified by the
-                           rotation matrix to A matrix.
-                         */
-                        A[j] = lco(c, keep_line,
-                                   s, move_line);
-                        A[i] = lco(-s, keep_line,
-                                    c, move_line);
+                                /* Applies the action codified
+                                   by the rotation matrix to A
+                                   matrix.
+                                 */
+                                A[j] = lco(c, keep_line,
+                                           s, move_line);
+                                A[i] = lco(-s, keep_line,
+                                            c, move_line);
 
-                        /* Now applies the same action to the
-                           absorbing matrix.
-                         */
-                        keep_line = absorb_matrix[j];
-                        move_line = absorb_matrix[i];
-                        absorb_matrix[j] = lco(c, keep_line,
-                                               s, move_line);
-                        absorb_matrix[i] = lco(-s, keep_line,
-                                                c, move_line);
+                                /* Now applies the same action to
+                                   the absorbing matrix.
+                                 */
+                                keep_line = absorb_matrix[j];
+                                move_line = absorb_matrix[i];
+                                absorb_matrix[j] =
+                                        lco(c, keep_line,
+                                            s, move_line);
+                                absorb_matrix[i] =
+                                        lco(-s, keep_line,
+                                             c, move_line);
+                        }
                 }
         }
 

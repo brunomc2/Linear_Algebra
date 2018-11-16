@@ -3,7 +3,9 @@ set title "Pesos versus nota mínima considerada"
 set xlabel "Nota mínima a ser considerada (média das provas)"
 set ylabel "Peso"
 # set xrange [0.0:0.75]
-set yrange [-0.5:1.5]
+# set yrange [-0.5:1.5]
+one(x) = 1
+zero(x) = 0
 set key
 # set term jpeg	#set term png
 set term postscript eps enhanced color
