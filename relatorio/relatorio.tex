@@ -122,37 +122,86 @@
 		infraestrutura computacional, de maneira ágil 
 		para a coleção completa das notas do semestre.
 
-		A nota é calculada através de uma média 
-		ponderada simples, isto é, se as notas dos 
-		relatórios são $R_1$ e $R_2$, com pesos 
-		$P_{R1}$ e $P_{R2}$, respectivamente, e, para 
-		a prova, têm-se as notas $P_1$ e $P_2$
-		com pesos $N_{P1}$ e $N_{P2}$, a nota final 
-		$N_F$ pode ser dada por
+		Foram estudados duas configurações de pesos, em 
+		uma delas, tomamos todos os pesos de cada uma 
+		das avaliações como independentes, em outra, 
+		consideramos apenas o peso das médias 
+		aritméticas dos relatórios e provas. Esse último
+		
+
+		Consideramos 
                 \begin{equation}
 			\frac{P_{N1}N_1 + P_{N2}N_2 + 
 			      P_{R1}R_1 + P_{R2}R_2}
-			     {P_{N1} + P_{N2} + P_{R1} + P_{R2}} 
+			     {P_{N1} + P_{N2} + 
+			      P_{R1} + P_{R2}}
                 \end{equation}
 		e, deseja-se tentar aproximar, para todos os 
 		alunos, a nota $N_F$ de $10$. Isto é, haverá 
 		um sistema com linhas do tipo 
-                \begin{equation}
-			P_{N1}N_1 + P_{N2}N_2 + 
-			P_{R1}R_1 + P_{R2}R_2
-			= 10 \cdot
-			\left(
-			P_{N1} + P_{N2} + P_{R1} + P_{R2} 
-			\right)
-                \end{equation}
+                \begin{equation*}
+			\begin{split}
+				& P_{N1}N_1 + P_{N2}N_2 + 
+				  P_{R1}R_1 + P_{R2}R_2 = \\
+				& 10 \cdot
+				  \left(
+				  P_{N1} + P_{N2} + 
+				  P_{R1} + P_{R2} 
+				  \right)
+			\end{split}
+                \end{equation*}
+		combinando fatores múltiplos do mesmo peso, 
+		é obtido
+                \begin{equation*}
+			\begin{split}
+				& P_{N1}(N_1 - 10) + 
+				  P_{N2}(N_2 - 10) + \\ 
+				& P_{R1}(R_1 - 10) + 
+				  P_{R2}(R_2 - 10) = 0
+			\end{split}
+                \end{equation*}
+		entretanto, esse formato tem um problema: A 
+		solução trivial é sempre solução, portanto o 
+		método de mínimos quadrados sempre produziria,
+		para o vetor de resultados, o vetor nulo.
+
+		Identificou-se como a origem do problema a 
+		inserção de um grau de liberdade que não está 
+		realmente presente, isto é, pode-se reduzir o 
+		problema estabelecendo uma restrição em um dos
+		pesos, como, por exemplo, o peso $P_{R2}$, de 
+		forma que a soma de todos os pesos seja sempre
+		$1$.
+
+		Assim, a igualdade pode ser reescrita da forma	
+		\begin{equation}
+			P_{N}(N - R) =  10 - R.
+			\label{SISTEMA_PESOS_SIMPLES}
+		\end{equation}
+
+		Consideraram-se dois casos principais: pesos 
+		independentes para cada uma das formas de 
+		avaliação, e pesos relativos à média aritmética
+		das provas e dos relatórios. No caso dos pesos 
+		independentes, a equação 
+		\label{SISTEMA_PESOS_SIMPLES}
+		se torna
+		\begin{equation}
+			\begin{split}
+				& P_{R1}(R_1 - N_2) + 
+				  P_{R2}(R_2 - N_2) + \\
+				& P_{N1}(N_1 - N_2) = 10 - N_2
+			\end{split}
+			\label{SISTEMA_PESOS_INDEPENDENTES}
+		\end{equation}
+		onde $R1$, $R2$, $P_{R1}$ $P_{R2}$ são as notas
+		e os pesos dos relatórios $1$ e $2$, 
+		respectivamente, e $N_1$ e $P_{N1}$ são a nota
+		e o peso da primeira prova. $N_2$ é a nota da 
+		segunda prova. 
 		
 
-                \begin{equation*}
-                        s = \sigma_{\overline{x}} * \sqrt{n}
-                \end{equation*}
-
-
-% Procedimento Experimental
+	% Procedimento Experimental
         \section{Procedimento Experimental}
                 \lipsum[5]
                 \begin{figure}[!htp]
