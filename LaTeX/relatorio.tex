@@ -1,0 +1,246 @@
+% Fonte tamanho 11, duas colunas, tipo artigo.
+\documentclass[11pt, article]{article}
+
+% Escrita em português
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuges, english]{babel}
+
+% Inclusão de Imagens
+\usepackage{graphicx}
+% \usepackage[outdir=./]{epstopdf}
+% Para incluir imagens usando o ambiente figure*, cuja vantagem é
+% a possibilidade de inclusão de imagens que ocupam as 2 colunas,
+% além de incluir duas figuras lado a lado, use a sintaxe:
+        % \begin(figure*)[!htp]
+        %         \centering
+        %         \includegraphics[width=0.45\linewidth]
+        %                         {imagem_1.png}
+        %         \includegraphics[width=0.45\linewidth]
+        %                         {imagem_2.png}
+        %         \caption{\small Descrição das figuras.}
+        %         \label{REFERENCIA_FIGURA_ASTERISCO}
+        % \end{figure*}
+% Os termos [!htp] servem para sinalizar a posição da figura e
+% forçá-la em determinada posição. Em geral são suficientes.
+% Para uma figura de uma única coluna, o ambiente figure pode ser
+% usado da seguinte forma:
+        % \begin(figure)[htp]
+                % \centering
+                % \includegraphics[width=0.9\linewidth]
+                %                 {imagem.png}
+                % \caption{\small Descrição das figuras.}
+                % \label{REFERENCIA_FIGURA}
+        % \end{figure}
+
+% Correção de Margens
+\usepackage
+[
+        top = 2.5cm,
+        left = 2.5cm,
+        right = 2.5cm,
+        bottom = 2.5cm
+]{geometry}
+
+% Símbolos Matemáticos
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+% Altera sin(x) para sen(x)
+\def\sen{\mathop{\mbox{\normalfont sen}}\nolimits}
+% O pacote amsmath dá acesso ao ambiente equation*, que não numera
+% as equações, diferente do ambiente equation. Para usá-los,
+% a sintaxe utilizada é:
+        % \begin{equation}
+        %         \sigma_{\overline{x}} =
+        %                 \sqrt{
+        %                         \frac
+        %                         {
+        %                                 \sum_{i = 1}^{n}
+        %                                 \delta_{i}^{2}
+        %                         }
+        %                         {
+        %                                 n(n - 1)
+        %                         }
+        %                 }
+        % \end{equation}
+        %
+        % \begin{equation*}
+        %         \sigma_{\overline{x}} =
+        %                 \sqrt{
+        %                         \frac
+        %                         {
+        %                                 \sum_{i = 1}^{n}
+        %                                 \delta_{i}^{2}
+        %                         }
+        %                         {
+        %                                 n(n - 1)
+        %                         }
+        %                 }
+        % \end{equation*}
+
+
+% Unidades do SI
+\usepackage{siunitx}
+% Para usar a unidade do SI, escreva da seguinte forma, por
+% exemplo, para 10 metros:
+        % \SI{10}{\metre}
+
+% Tabelas
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{multicol}
+% Esses pacotes possibilitam maior flexibilidade na construção de
+% tabelas. Um exemplo de tabela pode ter a forma:
+                % \begin{table}[!htp]
+                %         \begin{tabular}{m{0.225\linewidth}
+                %                         m{0.225\linewidth}
+                %                         m{0.225\linewidth} c}
+                %                         \toprule
+                %                 % Nome das Colunas
+                %                 Grandeza &
+                %                 \hbox{Valor} Teórico &
+                %                 \hbox{Valor} Prático & Desvio\\
+                %                 \midrule
+                %
+                %                 % Linha 1
+                %                 $f$ (\SI{}{\hertz}) &
+                %                 60,00 &
+                %                 60,10 &
+                %                 0,17\% \\
+                %
+                %                 % Linha 2
+                %                 $V_{L}$ (\SI{}{\volt}) &
+                %                 30,00 &
+                %                 29,28 &
+                %                 2,42\% \\
+                %
+                %                 % Linha 3
+                %                 $I_{L}$ (\SI{}{m\ampere}) &
+                %                 \SI{300,0}{} &
+                %                 \SI{290,0}{} &
+                %                 3,42\% \\
+                %
+                %                 % Linha 4
+                %                 $\phi$ (\SI{}{\radian}) &
+                %                 0.00 &
+                %                 0,00 &
+                %                 0,00\% \\ \hline
+                %         \end{tabular}
+                %         \caption{\small Descrição da tabela}
+                %         \label{REFERENCIA_TABELA}
+                % \end{table}
+% Assim como nas figuras, os parâmetros [!htp] servem para ajuste
+% de posição. Mais formas de tabela pode ser vistos em:
+% https://en.wikibooks.org/wiki/LaTeX/Tables
+
+% Bibliografia
+\usepackage
+[
+        % IEEE parece ter o estilo mais próximo
+        style     = ieee,
+        citestyle = numeric
+]{biblatex}
+% Referências para o uso desse pacote podem ser encontradas em:
+% www.sharelatex.com/learn/Bibliography_management_with_biblatex
+\bibliography{bibliography.bib}
+
+
+% Pacotes de rascunho
+\usepackage{lipsum}
+
+% Macro para valores com variação
+\newcommand{\val}[1]{\num[separate-uncertainty]{#1}}
+% Uso: \val{9.787604(9)E+0}
+
+% Variáveis de informação
+% Título
+\newcommand{\vartitulo}{Título do Relatório}
+% Nome (Formato A. B. C. Sobrenome)
+\newcommand{\varautor}{A. B. C. Sobrenome}
+% Instituição de Ensino
+\newcommand{\varinstituicao}{Universidade Universidade}
+% Departamento
+\newcommand{\vardepartamento}{Departamento de Departamento}
+% Informações de contato
+\newcommand{\varcontato}{Caixa Postal: XXXXX -
+                         CEP: XXXXX-XXX -
+                         Cidade -
+                         Estado \\
+                         Fone: +XX-XX-XXXX-XXXX -
+                         Fax: +XX-XX-XXXX-XXXX \\
+                         email@de.contato}
+
+% Informações para o título
+\title{\vartitulo}
+\author
+{
+        \varautor \\
+        \varinstituicao \\
+        \vardepartamento \\
+        \varcontato
+}
+\date{}
+
+\begin{document}
+
+        \paragraph{}
+	\input{./tables/tabela_media_da_turma.tex} \\[30pt]
+        \paragraph{}
+	\input{./tables/tabela_pesos_independentes.tex} \\[30pt]
+        \paragraph{}
+	\input{./tables/tabela_pesos_media.tex} \\[30pt]
+        \paragraph{}
+	\input{./tables/tabela_status_final.tex} \\[30pt]
+
+
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/media_bd/weights.eps}
+        \end{figure}
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/media_bd/total_class_average.eps}
+        \end{figure}
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/media_bd/final_state.eps}
+        \end{figure}
+
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/media_sem_bd/weights.eps}
+        \end{figure}
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/media_sem_bd/total_class_average.eps}
+        \end{figure}
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/media_sem_bd/final_state.eps}
+        \end{figure}
+
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/independente/weights.eps}
+        \end{figure}
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/independente/total_class_average.eps}
+        \end{figure}
+        \begin{figure}[!htb]
+                \includegraphics
+                [width=0.85\linewidth]
+                {./img/independente/final_state.eps}
+        \end{figure}
+
+
+\end{document}
