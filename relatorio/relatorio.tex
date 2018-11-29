@@ -1,0 +1,237 @@
+% Fonte tamanho 11, duas colunas, tipo artigo.
+\documentclass[11pt, twocolumn]{article}
+
+% Escrita em português
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuges, english]{babel}
+
+% Inclusão de Imagens
+\usepackage{graphicx}
+
+% Correção de Margens
+\usepackage
+[
+        top = 2.5cm,
+        left = 2.5cm,
+        right = 2.5cm,
+        bottom = 2.5cm
+]{geometry}
+
+% Símbolos Matemáticos
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+% Altera sin(x) para sen(x)
+\def\sen{\mathop{\mbox{\normalfont sen}}\nolimits}
+
+% Unidades do SI
+\usepackage{siunitx}
+
+% Tabelas
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+% Bibliografia
+\usepackage
+[
+        style     = ieee,
+        citestyle = numeric
+]{biblatex}
+\bibliography{bibliography.bib}
+
+
+% Pacotes de rascunho
+\usepackage{lipsum}
+
+% Variáveis de informação
+% Título
+\newcommand{\vartitulo}{Título do Relatório}
+% Nome (Formato A. B. C. Sobrenome)
+\newcommand{\varautor}{A. B. C. Sobrenome}
+% Instituição de Ensino
+\newcommand{\varinstituicao}{Universidade Universidade}
+% Departamento
+\newcommand{\vardepartamento}{Departamento de Departamento}
+% Informações de contato
+\newcommand{\varcontato}{Caixa Postal: XXXXX -
+                         CEP: XXXXX-XXX -
+                         Cidade -
+                         Estado \\
+                         Fone: +XX-XX-XXXX-XXXX -
+                         Fax: +XX-XX-XXXX-XXXX \\
+                         email@de.contato}
+
+% Informações para o título
+\title{\vartitulo}
+\author
+{
+        \varautor \\
+        \varinstituicao \\
+        \vardepartamento \\
+        \varcontato
+}
+\date{}
+
+\begin{document}
+        \selectlanguage{portuges}
+        \sisetup{output-decimal-marker = {,}}
+	\twocolumn
+        [
+% Informações autorais e de contato
+                \maketitle
+
+% Resumo do trabalho
+                \abstract
+                {
+                        % Coloque aqui o resumo do trabalho
+                        \lipsum[1] Vult.
+                        \newline
+
+                        % Palavras Chave
+                        Palavras-chave: Alguma, coisa, deve ser,
+
+                        % Espaço livre
+                        \vspace{2\baselineskip}
+                }
+        ]
+
+
+
+% Objetivo
+        \section{Objetivo}
+		Nesse trabalho, por meio do Método de Mínimos
+		Quadrados, determinaram-se os pesos para o 
+		ajuste das notas de Física Básica Experimental 
+		2, de modo a maximizar, na média, as notas de 
+		todos os alunos.
+
+% Fundamentação Teórica
+        \section{Fundamentação Teórica}
+		As notas da matéria se dividem em relatórios e 
+		provas. Até o momento de escrita desse trabalho,
+		dispunha-mos das notas de apenas dois dos três 
+		relatórios e provas realizados para o semestre,
+		contudo, estabelecida a validade e a praticidade
+		do seguinte método para tal aplicação como 
+		forma de 
+		\begin{otherlanguage}{english}
+			\textit{proof of concept}
+		\end{otherlanguage}
+		pode-se então aplicá-lo, mantida a 
+		infraestrutura computacional, de maneira ágil 
+		para a coleção completa das notas do semestre.
+
+		A nota é calculada através de uma média 
+		ponderada simples, isto é, se as notas dos 
+		relatórios são $R_1$ e $R_2$, com pesos 
+		$P_{R1}$ e $P_{R2}$, respectivamente, e, para 
+		a prova, têm-se as notas $P_1$ e $P_2$
+		com pesos $N_{P1}$ e $N_{P2}$, a nota final 
+		$N_F$ pode ser dada por
+                \begin{equation}
+			\frac{P_{N1}N_1 + P_{N2}N_2 + 
+			      P_{R1}R_1 + P_{R2}R_2}
+			     {P_{N1} + P_{N2} + P_{R1} + P_{R2}} 
+                \end{equation}
+		e, deseja-se tentar aproximar, para todos os 
+		alunos, a nota $N_F$ de $10$. Isto é, haverá 
+		um sistema com linhas do tipo 
+                \begin{equation}
+			P_{N1}N_1 + P_{N2}N_2 + 
+			P_{R1}R_1 + P_{R2}R_2
+			= 10 \cdot
+			\left(
+			P_{N1} + P_{N2} + P_{R1} + P_{R2} 
+			\right)
+                \end{equation}
+		
+
+                \begin{equation*}
+                        s = \sigma_{\overline{x}} * \sqrt{n}
+                \end{equation*}
+
+
+% Procedimento Experimental
+        \section{Procedimento Experimental}
+                \lipsum[5]
+                \begin{figure}[!htp]
+                        \centering
+%                        \includegraphics[width=0.9\linewidth]
+%                                {./img/diagrama.png}
+                        \caption{\small Um diagrama de experimento}
+                        \label{DIAGRAMA}
+                \end{figure}
+                \lipsum[6]
+
+% Resultados e Discussões
+        \section{Resultados e Discussões}
+                \lipsum[4]
+                \begin{figure}[!htp]
+                        \centering
+%                        \includegraphics[width=0.9\linewidth]
+%                                {./img/grafico.png}
+                        \caption{\small Um gráfico.}
+                        \label{GRAFICO}
+                \end{figure}
+
+                \lipsum[7]
+
+                \begin{figure*}[!htp]
+                        \centering
+%                       \includegraphics[width=0.9\linewidth]
+%                               {./img/diagram2.png}
+                        \caption{\small Um diagrama maior.}
+                        \label{DIAGRAMA_2}
+                \end{figure*}
+
+                \lipsum[10]
+
+                \begin{table}[!htp]
+                        \begin{tabular}{m{0.225\linewidth}
+                                        m{0.225\linewidth}
+                                        m{0.225\linewidth} c}
+                                        \toprule
+                                % Nome das Colunas
+                                Grandeza &
+                                \hbox{Valor} Teórico &
+                                \hbox{Valor} Prático & Desvio\\
+                                \midrule
+
+                                % Linha 1
+                                $f$ (\SI{}{\hertz}) &
+                                60,00 &
+                                60,10 &
+                                0,17\% \\
+
+                                % Linha 2
+                                $V_{L}$ (\SI{}{\volt}) &
+                                30,00 &
+                                29,28 &
+                                2,42\% \\
+
+                                % Linha 3
+                                $I_{L}$ (\SI{}{m\ampere}) &
+                                \SI{300,0}{} &
+                                \SI{290,0}{} &
+                                3,42\% \\
+
+                                % Linha 4
+                                $\phi$ (\SI{}{\radian}) &
+                                0.00 &
+                                0,00 &
+                                0,00\% \\ \hline
+                        \end{tabular}
+                        \caption{\small Uma tabela}
+                        \label{REFERENCIA_TABELA}
+                \end{table}
+
+                \lipsum[8]
+                \cite{NOME_DE_REFERENCIA_LIVRO}
+
+% Conclusões
+        \section{Conclusões}
+                \lipsum[9-10]
+% Bibliografia
+        \printbibliography
+\end{document}

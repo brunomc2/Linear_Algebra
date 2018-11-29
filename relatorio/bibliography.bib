@@ -1,0 +1,74 @@
+// Caso a template não funcione, tente remover esses comentários.
+// Um bom site de referências pode ser encontrado aqui: https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+
+// Livros:
+// Somente os campos author, title, publisher e year são
+// obrigatórios, contudo, também estão listados  os campos
+// para os elementos recomendados pelas normas técnicas.
+// Usado para fazer referência a livros INTEIROS.
+@book{NOME_DE_REFERENCIA_LIVRO,
+	author    = "N. SOBRENOME",
+	title     = "\textbf{Título do livro}",
+	publisher = "Editora",
+	volume    = "1",
+	edition   = "10",
+	year      = "2018",
+}
+
+// Inbook:
+// Somente os campos (author ||  editor), title,
+// (chapter || pages), publisher, year são obrigatórios,
+// contudo também estão listados os campos para os elementos
+// recomendados pelas normas técnicas.
+// Usado para fazer referência a seções de um livro que não
+// possuem seu próprio título.
+@inbook{NOME_DE_REFERENCIA_INBOOK,
+	author    = "N. SOBRENOME",
+	editor    = "Ed Tor",
+	title     = "\textbf{Título do livro}",
+	chapter   = "10",
+	pages     = "100-110",
+	publisher = "Editora",
+	volume    = "2",
+	edition   = "20",
+	year      = "2018",
+}
+
+// Artigos:
+// Somente os campos author, title, journal e year são
+// obrigatórios, contudo, também estão listados  os campos
+// para os elementos recomendados pelas normas técnicas.
+@article{NOME_DE_REFERENCIA_ARTIGO,
+	author  = "N. SOBRENOME",
+	title   = "\textbf{Título do artigo}",
+	journal = "Jornal onde foi publicado",
+	volume  = "10",
+	pages   = "100-110",
+	year    = "2018",
+}
+
+// Conferências
+// Somente os campos author, title, booktitle e year são
+// obrigatórios. Não encontrei referências técnicas, então
+// tentei aproximar dos outros modelos.
+@conference{NOME_REFERENCIA_CONFERENCIA,
+	author    = "N. SOBRENOME",
+	title     = "\textbf{Título da conferência}",
+	booktitle = "\textbf{Título do livro/artigo sobre o
+			     qual está sendo comentado}",
+	year      = "2018",
+}
+
+// Miscelânea
+// Não possui campos obrigatórios.
+// É usado para outras forma de publicação.
+// Também não foram encontradas especificações técnicas, mas
+// são listadas algumas opções de informações.
+@misc{NOME_REFERENCIA_MISCELANEA,
+	author       = "N. SOBRENOME",
+	title        = "\textbf{Título}",
+	howpublished = "Como foi publicado",
+	year         = "2018",
+	month        = "Janeiro",
+	note         = "Qualquer outra informação relevante.",
+}
