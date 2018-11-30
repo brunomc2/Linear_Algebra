@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-        bool domain_barrier_active = false;
+        bool domain_barrier_active = true;
         // Opening the grades file
         ifstream grades_file("./least_squares_data/grades.data");
 
@@ -65,7 +65,7 @@ int main()
 
 
         // WEIGHTS
-        L(L(double)) grade_matrix = grades;
+        L(L(double)) grade_matrix = grade_averages;
         L(L(double)) ret_matrix =
         grade_calc(discriminator,
                    grade_matrix,
