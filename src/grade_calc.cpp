@@ -165,3 +165,36 @@ L(L(double)) grade_calc(L(double)    discriminator,
 
         return ret_matrix;
 }
+
+/* This function writes a matrix to a file.
+ */
+void write_to_file(L(L(double)) matrix, ofstream& file)
+{
+        int lines = matrix.length();
+        for(int i = 0; i < lines; i++)
+        {
+                int columns = matrix[i].length();
+                for(int j = 0; j < columns; j++)
+                {
+                        file << matrix[i][j];
+                        file << "       ";
+                }
+                file << endl;
+        }
+}
+
+/* Forces the weigth into the [0,1] range
+ */
+double domain_barrier(double weigth)
+{
+        if(weigth > 1.0)
+        {
+                return 1.0;
+        }
+        else if(weigth < 0.0)
+        {
+                return 0.0;
+        }
+
+        return weigth;
+}

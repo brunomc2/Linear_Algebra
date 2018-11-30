@@ -5,8 +5,19 @@ using namespace std;
 
 int main()
 {
+        bool domain_barrier_active = false;
         // Opening the grades file
         ifstream grades_file("./least_squares_data/grades.data");
+
+        // Weights file
+        ofstream weights_file("./least_squares_data/"
+                              "weights.data");
+        // Class average file
+        ofstream class_avg_file("./least_squares_data/"
+                                "total_class_average.data");
+        // Final status file
+        ofstream final_status_file("./least_squares_data/"
+                                   "final_state.data");
 
         /* grades
            The grades matrix
@@ -53,23 +64,34 @@ int main()
         }
 
 
-        L(L(double)) grade_matrix = grade_averages;
+        // WEIGHTS
+        L(L(double)) grade_matrix = grades;
         L(L(double)) ret_matrix =
         grade_calc(discriminator,
                    grade_matrix,
                    0.0,
                    10.0,
                    0.1);
-
-        // Individual grade
-        L(L(double)) ind_grade;
         int num_weights = ret_matrix[0].length();
         /* Since every line has the ignored grade in it as
-           well.
-         */
+        well. */
         num_weights--;
         int num_removals = ret_matrix.length();
+        // Domain barrier
+        for(int k = 0; k < num_removals &&
+                       domain_barrier_active; k++)
+        {
+                for(int i = 0; i < num_weights; i++)
+                {
+                        ret_matrix[k][i + 1] =
+                        domain_barrier(ret_matrix[k][i + 1]);
+                }
+        }
+        write_to_file(ret_matrix, weights_file);
+        weights_file.close();
 
+        // INDIVIDUAL GRADE
+        L(L(double)) ind_grade;
         // For all weight configurations
         for(int k = 0; k < num_removals; k++)
         {
@@ -85,6 +107,8 @@ int main()
                 }
         }
 
+
+        // CLASS AVERAGE
         L(L(double)) class_average;
         // For all weight configurations
         for(int k = 0; k < num_removals; k++)
@@ -102,14 +126,41 @@ int main()
 
                 class_average[k][1] /= n_students;
         }
+        write_to_file(class_average, class_avg_file);
+        class_avg_file.close();
 
-        for(int i = 0; i < class_average.length(); i++)
+        // CLASS STATUS
+        L(L(double)) class_status;
+        /* class_status
+            Column 0 for grade threshold,
+            Column 1 for approved,
+            Column 2 for final exams,
+            Column 3 for fails
+         */
+        for(int k = 0; k < num_removals; k++)
         {
-                cout << class_average[i][0];
-                cout << " ";
-                cout << class_average[i][1];
-                cout << endl;
+                class_status[k][0] = ret_matrix[k][0];
+                class_status[k][1] = 0;
+                class_status[k][2] = 0;
+                class_status[k][3] = 0;
+                for(int i = 0; i < n_students; i++)
+                {
+                        if(ind_grade[k][i] < 4.0)
+                        {
+                                class_status[k][3]++;
+                        }
+                        else if(ind_grade[k][i] < 7.0)
+                        {
+                                class_status[k][2]++;
+                        }
+                        else
+                        {
+                                class_status[k][1]++;
+                        }
+                }
         }
+        write_to_file(class_status, final_status_file);
+        weights_file.close();
 
         return 0;
 }
