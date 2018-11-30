@@ -1,21 +1,9 @@
-[0] Config.pm:340> INFO - This is Biber 2.4
-[0] Config.pm:343> INFO - Logfile is 'relatorio.blg'
-[38] biber:287> INFO - === Qui Nov 29, 2018, 15:20:40
-[119] Biber.pm:348> INFO - Reading 'relatorio.bcf'
-[234] Biber.pm:742> INFO - Found 1 citekeys in bib section 0
-[241] Biber.pm:3151> INFO - Processing section 0
-[274] Biber.pm:3308> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[285] bibtex.pm:1113> INFO - Decoding LaTeX character macros into UTF-8
-[294] bibtex.pm:974> INFO - Found BibTeX data source 'bibliography.bib'
-[303] Utils.pm:147> WARN - BibTeX subsystem: /tmp/aFCT9k1Ah7/bibliography.bib_5495.utf8, line 9, warning: 367 characters of junk seen at toplevel
-[303] Utils.pm:147> WARN - BibTeX subsystem: /tmp/aFCT9k1Ah7/bibliography.bib_5495.utf8, line 25, warning: 268 characters of junk seen at toplevel
-[303] Utils.pm:147> WARN - BibTeX subsystem: /tmp/aFCT9k1Ah7/bibliography.bib_5495.utf8, line 41, warning: 159 characters of junk seen at toplevel
-[303] Utils.pm:147> WARN - BibTeX subsystem: /tmp/aFCT9k1Ah7/bibliography.bib_5495.utf8, line 54, warning: 154 characters of junk seen at toplevel
-[303] Utils.pm:147> WARN - BibTeX subsystem: /tmp/aFCT9k1Ah7/bibliography.bib_5495.utf8, line 67, warning: 187 characters of junk seen at toplevel
-[314] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[315] UCollate.pm:65> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[315] Biber.pm:3028> INFO - Sorting list 'none/global' of type 'entry' with scheme 'none' and locale 'en-US'
-[315] Biber.pm:3032> INFO - No sort tailoring available for locale 'en-US'
-[316] bbl.pm:519> INFO - Writing 'relatorio.bbl' with encoding 'UTF-8'
-[319] bbl.pm:615> INFO - Output to relatorio.bbl
-[319] Biber.pm:109> INFO - WARNINGS: 5
+[0] Config.pm:302> INFO - This is Biber 2.9
+[0] Config.pm:305> INFO - Logfile is 'relatorio.blg'
+[30] biber:313> INFO - === sex nov 30, 2018, 19:15:01
+[52] Biber.pm:371> INFO - Reading 'relatorio.bcf'
+[118] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
+[126] Utils.pm:169> WARN - The file 'relatorio.bcf' does not contain any citations!
+[133] bbl.pm:617> INFO - Writing 'relatorio.bbl' with encoding 'UTF-8'
+[133] bbl.pm:720> INFO - Output to relatorio.bbl
+[134] Biber.pm:110> INFO - WARNINGS: 1
