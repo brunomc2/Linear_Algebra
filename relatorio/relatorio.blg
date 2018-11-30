@@ -1,9 +1,0 @@
-[0] Config.pm:302> INFO - This is Biber 2.9
-[0] Config.pm:305> INFO - Logfile is 'relatorio.blg'
-[30] biber:313> INFO - === sex nov 30, 2018, 19:15:01
-[52] Biber.pm:371> INFO - Reading 'relatorio.bcf'
-[118] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
-[126] Utils.pm:169> WARN - The file 'relatorio.bcf' does not contain any citations!
-[133] bbl.pm:617> INFO - Writing 'relatorio.bbl' with encoding 'UTF-8'
-[133] bbl.pm:720> INFO - Output to relatorio.bbl
-[134] Biber.pm:110> INFO - WARNINGS: 1
